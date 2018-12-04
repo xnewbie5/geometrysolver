@@ -254,6 +254,14 @@ class problem3:
         print("Triangle 2 Perimeter: ",self.triangle2Perimeter)
         input("Enter anything to continue...")
 
+    #for use with the website.
+    def print_extra_variables_website(self):
+        print("<br>Triangle 1 Area: ",float(self.triangle1Area))
+        print("<br>Triangle 1 Perimeter: ",self.triangle1Perimeter)
+        print("<br>Triangle 2 Area: ",float(self.triangle2Area))
+        print("<br>Triangle 2 Perimeter: ",self.triangle2Perimeter)
+
+
     #ASSUME THE CENTER OF CIRCLE IS A VERTEX
     def set_vertex(self, name, x, y):
         if (name == "v1" or name == "v2" or name == "v3" or name == "center"):
@@ -288,12 +296,12 @@ class problem3:
         while True:
             result = self.solve_Triangle()
             if(result):
-                input("Done! No more things to solve. Enter anything to continue... ")
+                #input("Done! No more things to solve. Enter anything to continue... ")
                 break
             else:
                 counter+=1
                 if(counter==30):
-                    input("Unsolvable. Enter anything to continue... ")
+                    print("Unsolvable. Enter anything to continue... ")
                     break
         self.solve_extra_variables()
 

@@ -278,6 +278,55 @@ class problem2:
             print("Circle Area outside Triangle: ", None)
         input("Enter anything to continue...")
 
+    #for use with the website.
+    def print_extra_variables_website(self):
+        if(isinstance(self.i1,Point2D)):
+            print("<br>i1: ", self.i1.evalf())
+        else:
+            print("<br>i1: ", None)
+        if(isinstance(self.i2,Point2D)):
+            print("<br>i2: ", self.i2.evalf())
+        else:
+            print("<br>i2: ", None)
+        print("<br>c1: ", self.c1)
+        print("<br>c2: ", self.c2)
+        if(self.trianglePerimeter != None):
+            print("<br>Triangle Perimeter: ", round(self.trianglePerimeter,2))
+        else:
+            print("<br>Triangle Perimeter: ", None)
+        if(self.triangleArea != None):
+            print("<br>Triangle Area: ", round(self.triangleArea,2))
+        else:
+            print("<br>Triangle Area: ", None)
+        if(self.triangleAreaPartial != None):
+            print("<br>Small Triangle Area (where a3 is): ", round(self.triangleAreaPartial,2))
+        else:
+            print("<br>Small Triangle Area (where a3 is): ", None)
+        if(self.triangleAreaPartialLarger != None):
+            print("<br>Larger Triangle Area (where a1 and a2 are): ", round(self.triangleAreaPartialLarger,2))
+        else:
+            print("<br>Larger Triangle Area (where a1 and a2 are): ", None)
+        if(self.circleCircumference != None):
+            print("<br>Circle Circumference: ", round(self.circleCircumference,2))
+        else:
+            print("<br>Circle Circumference: ", None)
+        if(self.circleArea != None):
+            print("<br>Circle Area: ", round(self.circleArea,2))
+        else:
+            print("<br>Circle Area: ", None)
+        if(self.triangleAreaPartial != None):
+            print("<br>Triangle Area (minus circle): ", round(self.triangleAreaPartial,2))
+        else:
+            print("<br>Triangle Area (minus circle): ", None)
+        if(self.circleAreaInTriangle != None):
+            print("<br>Circle Area in Triangle: ", round(self.circleAreaInTriangle,2))
+        else:
+            print("<br>Circle Area in Triangle: ", None)
+        if(self.circleAreaOutsideTriangle != None):
+            print("<br>Circle Area outside Triangle: ", round(self.circleAreaOutsideTriangle,2))
+        else:
+            print("<br>Circle Area outside Triangle: ", None)
+
     #ASSUME THE CENTER OF CIRCLE IS A VERTEX
     def set_vertex(self, name, x, y):
         if (name == "v1" or name == "v2" or name == "v3" or name == "center"):
@@ -313,12 +362,12 @@ class problem2:
             result = self.solve_Triangle()
             result2 = self.solve_Circle()
             if(result and result2):
-                input("Done! No more things to solve. Enter anything to continue... ")
+                #input("Done! No more things to solve. Enter anything to continue... ")
                 break
             else:
                 counter+=1
                 if(counter==30):
-                    input("Unsolvable. Enter anything to continue... ")
+                    print("Unsolvable. Enter anything to continue... ")
                     break
         self.solve_extra_variables()
 
@@ -834,7 +883,7 @@ class problem2:
         #user enters both center and a radius
         if((tRadius != None) and (isinstance(tCenter, Point2D))):
             tCircle = Circle(tCenter, tRadius)
-            print("TempCircle Created")
+            #print("TempCircle Created")
             #good circle, keep
             if(self.checkCircle(tCircle)):
                 pass
@@ -875,7 +924,7 @@ class problem2:
     #passes True if its a good circle that intersects a side twice. False if it's not. 
     #c is circle object
     def checkCircle(self, c):
-        print("Checking created circle...")
+        #print("Checking created circle...")
         tCenter = c.center
         tRadius = c.radius
         tV1 = self.List["v1"]
